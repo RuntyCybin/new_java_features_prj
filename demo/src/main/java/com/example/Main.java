@@ -2,16 +2,21 @@ package com.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world let's try some records!");
-        Person person = new Person("Alice", 30);
-        System.out.println("Person: " + person);
-        System.out.println("Is adult: " + person.isAdult());
+        System.out.println("Hello world let's try some sealed intefaces with records!");
+        Person emp = new Employee("Alice", 30, "Developer");
+        Person cust = new Customer("Bob", 25, "Acme Corp");
 
-        // person.name = "Bob";
-        // This line would cause a compilation error because records are immutable
-        // what we can do is create a new instance:
+        printPersonInfo(emp);
+        printPersonInfo(cust);
+    }
 
-        Person child = new Person("Bob", 15);
-        System.out.println("Child: " + child);
+    static void printPersonInfo(Person person) {
+        switch (person) {
+            case Employee e -> System.out.println("Employee Position: " + e.position());
+            case Customer c -> System.out.println("Customer Company: " + c.company());
+        }
+        System.out.println("Name: " + person.name());
+        System.out.println("Age: " + person.age());
+        System.out.println("Is Adult: " + person.isAdult());
     }
 }

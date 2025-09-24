@@ -1,7 +1,11 @@
 package com.example;
 
-public record Person(String name, int age) {
-  public boolean isAdult() {
-    return age >= 18;
+sealed interface Person permits Employee, Customer {
+  String name();
+
+  int age();
+
+  default boolean isAdult() {
+    return age() >= 18;
   }
 }
