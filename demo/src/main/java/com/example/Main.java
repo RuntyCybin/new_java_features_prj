@@ -3,8 +3,8 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world let's try some sealed intefaces with records!");
-        Person emp = new Employee("Alice", 30, "Developer");
-        Person cust = new Customer("Bob", 25, "Acme Corp");
+        final Person emp = new Employee("Alice", 30, "Developer");
+        final Person cust = new Customer("Bob", 25, "Acme Corp");
 
         printPersonInfo(emp);
         printPersonInfo(cust);
