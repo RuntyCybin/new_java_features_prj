@@ -6,6 +6,6 @@ sealed interface Person permits Employee, Customer {
   int age();
 
   default boolean isAdult() {
-    return age() >= 18;
+    return this.age() >= 18;
   }
 }
